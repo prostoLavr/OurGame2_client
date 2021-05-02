@@ -2,7 +2,6 @@ import pygame_menu
 import pygame
 import game
 import json
-import threading
 
 
 DEFAULT = 'Ivan'
@@ -14,8 +13,10 @@ class Menu:
         with open('save.json', 'w') as file:
             json.dump(user_name, file)
         game.main(user_name)
+        pygame.display.set_caption("Menu")
 
     def __init__(self, name, width, height):
+        pygame.display.set_caption("Menu")
         try:
             with open('save.json', 'r') as file:
                 user_name = json.load(file)
